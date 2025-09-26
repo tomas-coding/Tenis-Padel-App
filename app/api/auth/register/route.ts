@@ -3,7 +3,7 @@ import { generateToken, hashPassword } from '@/lib/auth';
 import { User } from '@/types';
 
 // Mock user database (replace with real database later)
-let mockUsers: User[] = [
+const mockUsers: User[] = [
   {
     id: '1',
     email: 'admin@tennispadelclub.com',
