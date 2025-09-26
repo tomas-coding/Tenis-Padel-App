@@ -16,11 +16,10 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [isRedirecting, setIsRedirecting] = useState(false);
   
-  const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/bookings';
   
-  const { login, isLoading, isAuthenticated } = useAuthStore();
+  const { login, isLoading } = useAuthStore();
 
   // Check if user is already authenticated - DISABLED FOR TESTING
   // useEffect(() => {

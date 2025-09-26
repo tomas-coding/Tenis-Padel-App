@@ -9,14 +9,14 @@ export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
 export const SALT_ROUNDS = 12;
 
 // JWT Token utilities
-export function generateToken(payload: any): string {
+export function generateToken(payload: Record<string, unknown>): string {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 }
 
-export function verifyToken(token: string): any {
+export function verifyToken(token: string): Record<string, unknown> | null {
   try {
-    return jwt.verify(token, JWT_SECRET);
-  } catch (error) {
+    return jwt.verify(token, JWT_SECRET) as Record<string, unknown>;
+  } catch {
     return null;
   }
 }

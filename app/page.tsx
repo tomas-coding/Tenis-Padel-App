@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Users, Trophy, MapPin, Phone, Mail } from "lucide-react";
 import Navigation from "@/components/Navigation";
