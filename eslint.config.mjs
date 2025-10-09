@@ -21,10 +21,12 @@ const eslintConfig = [
     ],
   },
   {
+    files: ["**/*.ts", "**/*.tsx"],
     rules: {
-      "@typescript-eslint/no-explicit-any": "off", // ⛔ Desactiva el error de 'any'
+      "@typescript-eslint/no-explicit-any": "off", // ⛔ Esto sí se aplicará ahora
     },
   },
 ];
 
 export default eslintConfig;
+
