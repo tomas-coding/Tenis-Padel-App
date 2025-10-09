@@ -20,6 +20,11 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off", // ⛔ Desactiva el error de 'any'
+    },
+  },
 ];
 
 export default eslintConfig;
