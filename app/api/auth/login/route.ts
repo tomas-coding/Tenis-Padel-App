@@ -43,12 +43,16 @@ export async function POST(request: NextRequest) {
 
     // Find user
     const user = mockUsers.find(u => u.email === email);
-    if (!user) {
+    if (!user || !user.password) {
       return NextResponse.json(
         { error: 'Credenciales inválidas' },
         { status: 401 }
       );
     }
+
+    // At this point, user.password is guaranteed to be a string
+    // Use type assertion to ensure TypeScript recognizes it
+    const userPassword = user.password as string;
 
     // Verify password - temporary debug mode
     let isValidPassword = false;
@@ -57,7 +61,7 @@ export async function POST(request: NextRequest) {
     } else if (user.email === 'user@tennispadelclub.com' && password === 'password123') {
       isValidPassword = true;
     } else {
-      isValidPassword = await comparePassword(password, user.password);
+      isValidPassword = await comparePassword(password, userPassword);
     }
     
     if (!isValidPassword) {
