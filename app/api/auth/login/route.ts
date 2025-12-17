@@ -51,7 +51,8 @@ export async function POST(request: NextRequest) {
     }
 
     // At this point, user.password is guaranteed to be a string
-    const userPassword: string = user.password;
+    // Use type assertion to ensure TypeScript recognizes it
+    const userPassword = user.password as string;
 
     // Verify password - temporary debug mode
     let isValidPassword = false;
