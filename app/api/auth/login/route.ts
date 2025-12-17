@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     // Find user
     const user = mockUsers.find(u => u.email === email);
-    if (!user) {
+    if (!user || !user.password) {
       return NextResponse.json(
         { error: 'Credenciales inválidas' },
         { status: 401 }

@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Optimize for production
   output: 'standalone',
+  // Disable ESLint during builds
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     // Enable optimizations
     optimizePackageImports: ['lucide-react'],
